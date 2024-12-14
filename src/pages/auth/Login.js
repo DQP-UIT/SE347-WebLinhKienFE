@@ -39,32 +39,32 @@ const Login = () => {
         await dispatch(login(userData));
     };
 
-    // useEffect(() => {
-    //     if (isSuccess && isLoggedIn) {
-    //         navigate("/")
-    //     }
-
-    //     dispatch(RESET_AUTH())
-    // },
-    //     [isSuccess, isLoggedIn, dispatch, navigate]
-    // );
     useEffect(() => {
-        if (isLoggedIn && isSuccess) {
-            if (redirect === "cart") {
-                dispatch(
-                    saveCartDB({
-                        cartItems: JSON.parse(localStorage.getItem("cartItems")),
-                    })
-                );
-                return navigate("/cart");
-            }
-            dispatch(getCartDB());
-            // navigate("/");
-            // window.location.reload();
+        if (isSuccess && isLoggedIn) {
+            navigate("/")
         }
 
-        dispatch(RESET_AUTH());
-    }, [isSuccess, isLoggedIn, navigate, dispatch, redirect]);
+        dispatch(RESET_AUTH())
+    },
+        [isSuccess, isLoggedIn, dispatch, navigate]
+    );
+    // useEffect(() => {
+    //     if (isLoggedIn && isSuccess) {
+    //         if (redirect === "cart") {
+    //             dispatch(
+    //                 saveCartDB({
+    //                     cartItems: JSON.parse(localStorage.getItem("cartItems")),
+    //                 })
+    //             );
+    //             return navigate("/cart");
+    //         }
+    //         dispatch(getCartDB());
+    //         // navigate("/");
+    //         // window.location.reload();
+    //     }
+
+    //     dispatch(RESET_AUTH());
+    // }, [isSuccess, isLoggedIn, navigate, dispatch, redirect]);
 
 
     return (
