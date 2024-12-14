@@ -65,10 +65,10 @@ const ProductFilter = () => {
           <Slider
             range
             step={1000}
-            marks={{
-              10000: `${price[0]}`,
-              500000: `${price[1]}`,
-            }}
+            // marks={{
+            //   10000: `${price[0]}`,
+            //   500000: `${price[1]}`,
+            // }}
             min={minPrice}
             max={maxPrice}
             defaultValue={[minPrice, maxPrice]}
@@ -80,6 +80,10 @@ const ProductFilter = () => {
             value={price}
             onChange={(price) => setPrice(price)}
           />
+        </div>
+        <div className={styles.priceDisplay}>
+          <p>Giá tối thiểu: {price[0]} VND</p>
+          <p>Giá tối đa: {price[1]} VND</p>
         </div>
         <br />
         <br />
